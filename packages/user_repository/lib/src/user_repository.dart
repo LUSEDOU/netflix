@@ -36,8 +36,9 @@ class UserRepository {
     return Future.delayed(
       const Duration(milliseconds: 300),
       () { 
+        _user = User(id: const Uuid().v4());
         _cache.write(key: userCacheKey, value: _user);
-        return _user = User(id: const Uuid().v4());
+        return _user ;
       }
     );
   }

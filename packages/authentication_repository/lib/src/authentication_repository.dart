@@ -53,6 +53,8 @@ class AuthenticationRepository {
     }
   }
 
+  // TODO(LUSEDOU): Add SignIn
+
   /// Close de controller
   void dispose() => _controller.close();
 }
