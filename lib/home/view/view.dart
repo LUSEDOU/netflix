@@ -12,8 +12,12 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Appbar'),
       ),
-      body: ColoredBox(
-        color: theme.canvasColor,
+      body: Center(
+        child: Container(
+          width: 100,
+          height: 100,
+          color: theme.primaryColorLight,
+        ),
       ),
     );
   }
