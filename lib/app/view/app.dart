@@ -52,10 +52,10 @@ class AppView extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Container()/*FlowBuilder<AuthenticationStatus>(
+      home: FlowBuilder<AuthenticationStatus>(
         state: context.select((AuthenticationBloc bloc) => bloc.state.status),
-        onGeneratePages: OnGenerateAppViewPages,
-      )*/,
+        onGeneratePages: onGenerateAppViewPages,
+      ),
     );
   }
 }
