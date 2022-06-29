@@ -4,7 +4,6 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:netflix/authentication/authentication.dart';
 import 'package:user_repository/user_repository.dart';
 
 
@@ -42,18 +41,23 @@ class AuthenticationBloc extends
     return super.close();
   }
   
-  void _onStatusChanged(
+  Future<void> _onStatusChanged(
     AuthenticationStatusChanged event,
     Emitter<AuthenticationState> emit,
   ) async {
-
+    final user = await _tryGetUser();
+    emit(
+      user.isNotEmpty
+        ? AuthenticationState.authenticated(user)
+        : const AuthenticationState.unauthenticated(),
+    );
   }
 
   void _onLogoutRequested(
     AuthenticationLogoutRequested event,
     Emitter<AuthenticationState> emit,
-  ) async {
-
+  ) {
+    _authenticationRepository.logOut();
   }
 
   Future<User> _tryGetUser() async {
