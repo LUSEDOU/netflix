@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/theme/theme.dart';
+import 'package:netflix/util/theme.dart';
+import 'package:netflix/util/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,9 +9,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screensize = MediaQuery.of(context).size;
+    
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Appbar'),
+      appBar: PreferredSize(
+        preferredSize: screensize,
+        child: const CustomAppBar(), 
       ),
       body: Center(
         child: Container(

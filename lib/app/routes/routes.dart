@@ -1,6 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/home/home.dart';
+import 'package:netflix/screens/screens.dart';
 
 List<Page<dynamic>> onGenerateAppViewPages(
   AuthenticationStatus state, List<Page<dynamic>> pages,

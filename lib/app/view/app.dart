@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:netflix/app/app.dart';
 import 'package:netflix/l10n/l10n.dart';
-import 'package:netflix/theme/theme.dart';
+import 'package:netflix/util/theme.dart';
 import 'package:user_repository/user_repository.dart';
 
 class App extends StatelessWidget {
@@ -46,6 +46,7 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme,
       localizationsDelegates: const [
         AppLocalizations.delegate,
