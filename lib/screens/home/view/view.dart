@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/util/theme.dart';
+import 'package:netflix/util/widgets/custom_app_bar.dart';
 import 'package:netflix/util/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,10 +13,7 @@ class HomePage extends StatelessWidget {
     final screensize = MediaQuery.of(context).size;
     
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: screensize,
-        child: const CustomAppBar(), 
-      ),
+      extendBodyBehindAppBar: true,
       body: Center(
         child: Container(
           width: 100,
@@ -23,6 +21,36 @@ class HomePage extends StatelessWidget {
           color: theme.primaryColorLight,
         ),
       ),
+      floatingActionButton: FloatingActionButton.large(
+        onPressed: () {},
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: listItemBottom,
+        showUnselectedLabels: true,
+      ),
     );
   }
 }
+
+List<BottomNavigationBarItem> listItemBottom = const [
+  BottomNavigationBarItem(
+    icon: Icon(Icons.abc),
+    label: 'inicio',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.abc),
+    label: 'juegos',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.abc),
+    label: 'Nuevo y Popular',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.abc),
+    label: 'Para reír',
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.abc),
+    label: 'Descargas',
+  ),
+];
