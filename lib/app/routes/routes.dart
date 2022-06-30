@@ -9,7 +9,6 @@ List<Page<dynamic>> onGenerateAppViewPages(
     case AuthenticationStatus.authenticated:
       return [HomePage.page()];
     case AuthenticationStatus.unauthenticated:
-      return [HomePage.page()];
-      // TODO: add LoginPage route
+      return [LoginPage.page()];
   }
 }
