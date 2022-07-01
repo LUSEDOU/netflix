@@ -26,19 +26,19 @@ class UserRepository {
   User get currentUser {
     return _cache.read<User>(key: userCacheKey) ?? User.empty;
   }
-
-  /// user
-  User _user = User.empty;
   
-  /// Get and user and give it and id random
+  /// Get user and give it and id random if is empty
   Future<User> get user async {
-    if (_user.isNotEmpty) return _user;
+    if (currentUser.isNotEmpty) return currentUser;
     return Future.delayed(
       const Duration(milliseconds: 300),
-      () { 
-        _user = User(id: const Uuid().v4());
-        _cache.write(key: userCacheKey, value: _user);
-        return _user ;
+      () {
+        final _user = User(id: const Uuid().v4());
+        _cache.write(
+          key: userCacheKey, 
+          value: _user,
+        );
+        return _user;
       }
     );
   }

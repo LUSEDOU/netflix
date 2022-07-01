@@ -45,9 +45,9 @@ class AuthenticationBloc extends
     AuthenticationStatusChanged event,
     Emitter<AuthenticationState> emit,
   ) async {
-    final user = await _tryGetUser();
+    final user = await _userRepository.user;
     emit(
-      user.isNotEmpty
+      user.isEmpty
         ? AuthenticationState.authenticated(user)
         : const AuthenticationState.unauthenticated(),
     );
@@ -58,14 +58,5 @@ class AuthenticationBloc extends
     Emitter<AuthenticationState> emit,
   ) {
     _authenticationRepository.logOut();
-  }
-
-  Future<User> _tryGetUser() async {
-    try {
-      final user = await _userRepository.user;
-      return user;
-    } catch (_) {
-      return User.empty;
-    }
   }
 }
